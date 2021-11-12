@@ -5,16 +5,16 @@ import Notification from "../Notification/Notification";
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
   <>
-    {total ? (
+    {total(good, neutral, bad) ? (
       <>
         <ul className={s.statisticList}>
           <li className={s.statisticItem}>Good: {good}</li>
           <li className={s.statisticItem}>Neutral: {neutral}</li>
           <li className={s.statisticItem}>Bad: {bad}</li>
         </ul>
-        <p className={s.statisticItem}>Total: {total}</p>
+        <p className={s.statisticItem}>Total: {total(good, neutral, bad)}</p>
         <p className={s.statisticItem}>
-          Positive feedback: {positivePercentage}%
+          Positive feedback: {positivePercentage(good, neutral, bad)}%
         </p>
       </>
     ) : (
